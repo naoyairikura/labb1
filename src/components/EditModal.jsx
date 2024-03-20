@@ -1,12 +1,8 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const EditModal = () => {
+const EditModal = ({setShowModal}) => {
   
-
-  const handleClose = () => setShowModal(false);
-  const handleShow = () => setShowModal(true);
-
   return (
     <div>
         <div className="modal-backdrop fade show" style={{ zIndex: 1050, backgroundColor: 'rgba(0, 0, 0, 0.5)', position: 'fixed', top: 0, right: 0, bottom: 0, left: 0 }}>
@@ -15,13 +11,13 @@ const EditModal = () => {
               <div className="modal-content">
                 <div className="modal-header">
                   <h5 className="modal-title">Modal title</h5>
-                  <button type="button" className="btn-close" onClick={handleClose}></button>
+                  <button type="button" className="btn-close" onClick={()=>setShowModal(false)}></button>
                 </div>
                 <div className="modal-body">
                   This is the content of the modal. You can put any JSX elements or components here.
                 </div>
                 <div className="modal-footer">
-                  <button type="button" className="btn btn-secondary" onClick={handleClose}>
+                  <button type="button" className="btn btn-secondary" onClick={()=>setShowModal(false)}>
                     Close
                   </button>
                   <button type="button" className="btn btn-primary">

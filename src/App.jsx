@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <RecipeCard setShowModal={setShowModal}/>
-      {showModal && <EditModal />}
+      {showModal && <EditModal setShowModal={setShowModal}/>}
       
       
     </>
