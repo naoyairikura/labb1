@@ -3,7 +3,7 @@ import Pasta from '../assets/pasta.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const RecipeCard = () => {
+const RecipeCard = ({setShowModal}) => {
   return (
     <div className="container">
       <div className="row">
@@ -14,7 +14,7 @@ const RecipeCard = () => {
           <h4 className="text-start m-0">Pasta</h4>
           <div className="text-start">Short description</div>
           <div className="position-absolute bottom-0 bt-group">
-            <button className="btn btn-primary btn-sm me-2">Edit</button>
+            <button className="btn btn-primary btn-sm me-2" onClick={()=>setShowModal(true)}>Edit</button>
             <button className="btn btn-danger btn-sm">Delete</button>
           </div>
           

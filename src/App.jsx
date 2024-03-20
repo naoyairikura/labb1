@@ -1,14 +1,15 @@
+import { useState } from 'react';
 import './App.css'
 import EditModal from './components/EditModal'
 import RecipeCard from './components/RecipeCard'
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-
+  const [showModal, setShowModal] = useState(false);
   return (
     <>
-      <RecipeCard />
-      <EditModal />
+      <RecipeCard setShowModal={setShowModal}/>
+      {showModal && <EditModal />}
+      
       
     </>
   )
