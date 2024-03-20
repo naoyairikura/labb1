@@ -1,10 +1,9 @@
 import React from 'react'
-import Pasta from '../assets/pasta.jpg';
 
 const RecipeCard = () => {
   return (
     <div>RecipeCard
-      <img src={Pasta} />
+      <img src='../assets/pasta.jpg' />
     </div>
   )
 }
