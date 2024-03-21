@@ -17,7 +17,7 @@ const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
     if(modalType === 'Add'){
       addRecipe(recipeName, recipeDescription);
     } else if(modalType === 'Edit') {
-      editRecipe(0, recipe)
+      editRecipe(recipe)
     }
     setShowModal(false);
   }

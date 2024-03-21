@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import './App.css'
 import Modal from './components/Modal'
-import RecipeCard from './components/RecipeCard'
 import NavBar from './components/NavBar';
 import RecipeList from './components/RecipeList';
 
@@ -31,7 +30,8 @@ function App() {
     setRecipeList(newRecipeList);
   }
 
-  const editRecipe = (index, editedRecipe) => {
+  const [index, setIndex] = useState();
+  const editRecipe = (editedRecipe) => {
     const newRecipeList = [...recipeList];
     newRecipeList[index] = editedRecipe;
     setRecipeList(newRecipeList)
@@ -44,6 +44,7 @@ function App() {
         recipeList={recipeList} 
         setShowModal={setShowModal} 
         setModalType={setModalType}
+        setIndex={setIndex}
       />
       {showModal && 
         <Modal 
@@ -54,8 +55,6 @@ function App() {
           editRecipe={editRecipe}
         />
       }
-      
-      
     </>
   )
 }

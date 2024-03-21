@@ -1,7 +1,7 @@
 import React from 'react'
 import RecipeCard from './RecipeCard'
 
-const RecipeList = ({ recipeList, setShowModal, setModalType }) => {
+const RecipeList = ({ recipeList, setShowModal, setModalType, setIndex }) => {
     return (
         <>
             {recipeList.map((recipe, index) => (
@@ -12,6 +12,7 @@ const RecipeList = ({ recipeList, setShowModal, setModalType }) => {
                         description={recipe.description}
                         setShowModal={setShowModal}
                         setModalType={setModalType}
+                        setIndex={setIndex}
                     />
                 </div>
                 

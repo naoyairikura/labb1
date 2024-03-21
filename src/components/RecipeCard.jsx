@@ -3,8 +3,9 @@ import Pasta from '../assets/pasta.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const RecipeCard = ({index, name, description, setShowModal, setModalType}) => {
+const RecipeCard = ({ index, name, description, setShowModal, setModalType, setIndex}) => {
   const handleEditClick = () => {
+    setIndex(index)
     setShowModal(true)
     setModalType('Edit')
   }
