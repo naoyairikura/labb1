@@ -12,11 +12,7 @@ const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
   }
 
   const handleSave = () => {
-    if(modalType === 'Add'){
-      addRecipe(recipe);
-    } else if(modalType === 'Edit') {
-      editRecipe(recipe)
-    }
+    modalType === 'Add' ? addRecipe(recipe) : editRecipe(recipe);
     setShowModal(false);
   }
   return (
