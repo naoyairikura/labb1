@@ -22,11 +22,8 @@ function App() {
     },
   ])
 
-  const addRecipe = (name, description) => {
-    const newRecipeList = [...recipeList, {
-      name: name,
-      description: description
-    }]
+  const addRecipe = (recipe) => {
+    const newRecipeList = [...recipeList, recipe]
     setRecipeList(newRecipeList);
   }
 
