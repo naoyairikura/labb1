@@ -1,11 +1,24 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Modal = ({ setShowModal, setRecipe, modalType, addRecipe }) => {
+const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
   const [recipeName, setRecipeName] = useState('');
   const [recipeDescription, setRecipeDescription] = useState('');
+  const [recipe, setRecipe] = useState({
+    name: '',
+    description: ''
+  });
+
+  const handleInputChange = (e) => {
+    setRecipe({ ...recipe, name: e.target.value });
+  }
+
   const handleSave = () => {
-    addRecipe(recipeName, recipeDescription);
+    if(modalType === 'Add'){
+      addRecipe(recipeName, recipeDescription);
+    } else if(modalType === 'Edit') {
+      editRecipe(0, recipe)
+    }
     setShowModal(false);
   }
   return (
@@ -25,8 +38,8 @@ const Modal = ({ setShowModal, setRecipe, modalType, addRecipe }) => {
                     type="text" 
                     className="form-control" 
                     id="recipeName"
-                    value={recipeName}
-                    onChange={(e)=>setRecipeName(e.target.value)}
+                    value={recipe.name}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="mb-3 d-flex align-items-center">

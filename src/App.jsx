@@ -31,16 +31,27 @@ function App() {
     setRecipeList(newRecipeList);
   }
 
+  const editRecipe = (index, editedRecipe) => {
+    const newRecipeList = [...recipeList];
+    newRecipeList[index] = editedRecipe;
+    setRecipeList(newRecipeList)
+  }
+
   return (
     <>
       <NavBar setShowModal={setShowModal} setModalType={setModalType}/>
-      <RecipeList recipeList={recipeList}/>
+      <RecipeList 
+        recipeList={recipeList} 
+        setShowModal={setShowModal} 
+        setModalType={setModalType}
+      />
       {showModal && 
         <Modal 
           setShowModal={setShowModal} 
           setRecipe={setRecipe}
           modalType={modalType}
           addRecipe={addRecipe}
+          editRecipe={editRecipe}
         />
       }
       
