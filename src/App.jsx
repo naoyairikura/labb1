@@ -23,16 +23,24 @@ function App() {
     },
   ])
 
+  const addRecipe = (name, description) => {
+    const newRecipeList = [...recipeList, {
+      name: name,
+      description: description
+    }]
+    setRecipeList(newRecipeList);
+  }
+
   return (
     <>
       <NavBar setShowModal={setShowModal} setModalType={setModalType}/>
       <RecipeList recipeList={recipeList}/>
-      
       {showModal && 
         <Modal 
           setShowModal={setShowModal} 
           setRecipe={setRecipe}
           modalType={modalType}
+          addRecipe={addRecipe}
         />
       }
       

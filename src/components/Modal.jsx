@@ -1,14 +1,11 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Modal = ({ setShowModal, setRecipe, modalType }) => {
+const Modal = ({ setShowModal, setRecipe, modalType, addRecipe }) => {
   const [recipeName, setRecipeName] = useState('');
   const [recipeDescription, setRecipeDescription] = useState('');
   const handleSave = () => {
-    setRecipe({
-      name: recipeName,
-      description: recipeDescription
-    })
+    addRecipe(recipeName, recipeDescription);
     setShowModal(false);
   }
   return (

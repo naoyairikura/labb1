@@ -3,7 +3,7 @@ import RecipeCard from './RecipeCard'
 
 const RecipeList = ({ recipeList }) => {
     return (
-        <div className='card-list'>
+        <>
             {recipeList.map((recipe, index) => (
                 <div key={index} className='mt-3'>
                     <RecipeCard
@@ -13,7 +13,7 @@ const RecipeList = ({ recipeList }) => {
                 </div>
                 
             ))}
-        </div>
+        </>
     )
 }
 
