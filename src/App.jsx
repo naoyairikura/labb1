@@ -6,10 +6,6 @@ import RecipeList from './components/RecipeList';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
-  const [recipe, setRecipe] = useState({
-    name: '',
-    description: ''
-  });
   const [modalType, setModalType] = useState('');
   const [recipeList, setRecipeList] = useState([
     {
@@ -46,7 +42,6 @@ function App() {
       {showModal && 
         <Modal 
           setShowModal={setShowModal} 
-          setRecipe={setRecipe}
           modalType={modalType}
           addRecipe={addRecipe}
           editRecipe={editRecipe}
