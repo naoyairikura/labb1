@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const EditModal = ({ setShowModal, setRecipe }) => {
+const Modal = ({ setShowModal, setRecipe, modalType }) => {
   const [recipeName, setRecipeName] = useState('');
   const [recipeDescription, setRecipeDescription] = useState('');
   const handleSave = () => {
@@ -18,7 +18,7 @@ const EditModal = ({ setShowModal, setRecipe }) => {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title">Edit recipe</h5>
+                <h5 className="modal-title">{modalType} recipe</h5>
                 <button type="button" className="btn-close" onClick={() => setShowModal(false)}></button>
               </div>
               <div className="modal-body d-flex flex-column">
@@ -53,4 +53,4 @@ const EditModal = ({ setShowModal, setRecipe }) => {
   );
 }
 
-export default EditModal
+export default Modal

@@ -1,11 +1,21 @@
 import React from 'react'
 
-const NavBar = () => {
+const NavBar = ({setShowModal, setModalType}) => {
+  const handleAddClick = () => {
+    setShowModal(true)
+    setModalType('Add')
+  }
   return (
     <nav className="navbar navbar-light bg-light">
       <a className="navbar-brand ms-2">Your recipe</a>
       <form className="form-inline ms-auto">
-        <button className="btn btn-outline-success me-2" type="button">Add recipe</button>
+        <button 
+          className="btn btn-outline-success me-2" 
+          type="button"
+          onClick={handleAddClick}
+        >
+          Add recipe
+        </button>
       </form>
     </nav>
   )

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './App.css'
-import EditModal from './components/EditModal'
+import Modal from './components/Modal'
 import RecipeCard from './components/RecipeCard'
 import NavBar from './components/NavBar';
 
@@ -10,12 +10,23 @@ function App() {
     name: '',
     description: ''
   });
+  const [modalType, setModalType] = useState('');
 
   return (
     <>
-      <NavBar />
-      <RecipeCard setShowModal={setShowModal} recipe={recipe}/>
-      {showModal && <EditModal setShowModal={setShowModal} setRecipe={setRecipe}/>}
+      <NavBar setShowModal={setShowModal} setModalType={setModalType}/>
+      <RecipeCard 
+        setShowModal={setShowModal} 
+        recipe={recipe} 
+        setModalType={setModalType}
+      />
+      {showModal && 
+        <Modal 
+          setShowModal={setShowModal} 
+          setRecipe={setRecipe}
+          modalType={modalType}
+        />
+      }
       
       
     </>
