@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Modal = ({ index, recipeList, setShowModal, modalType, addRecipe, editRecipe }) => {
-  console.log(index);
   const [recipe, setRecipe] = useState(
     index === null ? {
       name: '',
