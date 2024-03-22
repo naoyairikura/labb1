@@ -1,7 +1,5 @@
 import React from 'react'
 import Pasta from '../assets/pasta.jpg';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 const RecipeCard = ({ index, name, description, setShowModal, setModalType, setIndex}) => {
   const handleEditClick = () => {
