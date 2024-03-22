@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Pasta",
+        "description": "pastas description",
+        "src": "src/assets/pasta.jpg"
+    },
+    {
+        "name": "Hamburger",
+        "description": "Hamburgers description",
+        "src": "src/assets/pasta.jpg"
+    }
+]

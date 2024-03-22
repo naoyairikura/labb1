@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css'
 import Modal from './components/Modal'
 import NavBar from './components/NavBar';
@@ -8,16 +8,16 @@ import Footer from './components/Footer';
 function App() {
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
-  const [recipeList, setRecipeList] = useState([
-    {
-      name: "Pasta",
-      description: "pastas description"
-    },
-    {
-      name: "Hamburger",
-      description: "Hamburgers description"
-    },
-  ])
+  const [recipeList, setRecipeList] = useState([])
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch('../initRecipe.json');
+      const data = await response.json();
+      setRecipeList(data);
+    }
+    fetchData();
+  }, [])
+
 
   const addRecipe = (recipe) => {
     const newRecipeList = [...recipeList, recipe]
