@@ -8,8 +8,7 @@ const RecipeList = ({ recipeList, setShowModal, setModalType, setIndex }) => {
                 <div key={index} className='mt-3'>
                     <RecipeCard
                         index={index}
-                        name={recipe.name}
-                        description={recipe.description}
+                        recipe={recipe}
                         setShowModal={setShowModal}
                         setModalType={setModalType}
                         setIndex={setIndex}

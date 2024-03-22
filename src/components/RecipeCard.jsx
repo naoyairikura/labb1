@@ -1,7 +1,6 @@
 import React from 'react'
-import Pasta from '../assets/pasta.jpg';
 
-const RecipeCard = ({ index, name, description, setShowModal, setModalType, setIndex}) => {
+const RecipeCard = ({ index, recipe, setShowModal, setModalType, setIndex}) => {
   const handleEditClick = () => {
     setIndex(index)
     setShowModal(true)
@@ -11,11 +10,11 @@ const RecipeCard = ({ index, name, description, setShowModal, setModalType, setI
     <div className="container">
       <div className="row">
         <div className="col p-0">
-          <img src={Pasta} alt="pasta" className="img-fluid" />
+          <img src={recipe.src} alt="pasta" className="img-fluid" />
         </div>
         <div className="col position-relative">
-          <h4 className="text-start m-0">{name}</h4>
-          <div className="text-start">{description}</div>
+          <h4 className="text-start m-0">{recipe.name}</h4>
+          <div className="text-start">{recipe.description}</div>
           <div className="position-absolute bottom-0 bt-group">
             <button className="btn btn-outline-primary btn-sm me-2" onClick={handleEditClick}>Edit</button>
             <button className="btn btn-outline-danger btn-sm">Delete</button>
