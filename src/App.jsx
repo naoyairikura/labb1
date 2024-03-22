@@ -3,6 +3,7 @@ import './App.css'
 import Modal from './components/Modal'
 import NavBar from './components/NavBar';
 import RecipeList from './components/RecipeList';
+import Footer from './components/Footer';
 
 function App() {
   const [showModal, setShowModal] = useState(false);
@@ -47,6 +48,7 @@ function App() {
           editRecipe={editRecipe}
         />
       }
+      <Footer recipeList={recipeList}/>
     </>
   )
 }
