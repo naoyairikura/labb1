@@ -17,8 +17,8 @@ const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
   }
   return (
     <>
-      <div className="modal-backdrop fade show" style={{ zIndex: 1050, backgroundColor: 'rgba(0, 0, 0, 1)', position: 'fixed', top: 0, right: 0, bottom: 0, left: 0 }}>
-        <div className="modal fade show" tabIndex="-1" style={{ display: 'block', zIndex: 1051 }}>
+      <div className="modal-backdrop fade show">
+        <div className="modal fade show" tabIndex="-1" style={{ display: 'block' }}>
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
