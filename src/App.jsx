@@ -31,6 +31,11 @@ function App() {
     setRecipeList(newRecipeList)
   }
 
+  const deleteRecipe = (index) => {
+    const newRecipeList = [...recipeList.slice(0, index), ...recipeList.slice(index + 1)];
+    setRecipeList(newRecipeList);
+  }
+
   return (
     <>
       <NavBar setShowModal={setShowModal} setModalType={setModalType} setIndex={setIndex}/>
@@ -39,6 +44,7 @@ function App() {
         setShowModal={setShowModal} 
         setModalType={setModalType}
         setIndex={setIndex}
+        deleteRecipe={deleteRecipe}
       />
       {showModal && 
         <Modal 
