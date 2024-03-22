@@ -8,7 +8,6 @@ const RecipeCard = ({ index, recipe, setShowModal, setModalType, setIndex, delet
   }
 
   const handleDelete = () => {
-    console.log(index);
     setIndex(index)
     deleteRecipe(index)
   }
