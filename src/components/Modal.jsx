@@ -7,6 +7,10 @@ const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
     description: ''
   });
 
+  const change = (e) => {
+    setRecipe({...recipe, [e.target.name]:e.target.value})
+  }
+
   const handleSave = () => {
     modalType === 'Add' ? addRecipe(recipe) : editRecipe(recipe);
     setShowModal(false);
@@ -27,9 +31,9 @@ const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
                   <input 
                     type="text" 
                     className="form-control" 
-                    id="recipeName"
+                    name='name'
                     value={recipe.name}
-                    onChange={(e)=>setRecipe({...recipe, name:e.target.value})}
+                    onChange={change}
                   />
                 </div>
                 <div className="mb-3 d-flex align-items-center">
@@ -37,9 +41,9 @@ const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
                   <input 
                     type="text" 
                     className="form-control" 
-                    id="description" 
+                    name='description' 
                     value={recipe.description}
-                    onChange={(e)=>setRecipe({...recipe, description:e.target.value})}
+                    onChange={change}
                   />
                 </div>
               </div>
