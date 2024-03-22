@@ -33,7 +33,7 @@ function App() {
 
   return (
     <>
-      <NavBar setShowModal={setShowModal} setModalType={setModalType}/>
+      <NavBar setShowModal={setShowModal} setModalType={setModalType} setIndex={setIndex}/>
       <RecipeList 
         recipeList={recipeList} 
         setShowModal={setShowModal} 
@@ -42,6 +42,8 @@ function App() {
       />
       {showModal && 
         <Modal 
+          index={index}
+          recipeList={recipeList}
           setShowModal={setShowModal} 
           modalType={modalType}
           addRecipe={addRecipe}

@@ -1,9 +1,10 @@
 import React from 'react'
 
-const NavBar = ({setShowModal, setModalType}) => {
+const NavBar = ({setShowModal, setModalType, setIndex}) => {
   const handleAddClick = () => {
     setShowModal(true)
     setModalType('Add')
+    setIndex(null)
   }
   return (
     <nav className="navbar navbar-light bg-light">

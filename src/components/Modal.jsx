@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
-  const [recipe, setRecipe] = useState({
-    name: '',
-    description: '',
-    src: 'src/assets/fallback.jpeg'
-  });
-
+const Modal = ({ index, recipeList, setShowModal, modalType, addRecipe, editRecipe }) => {
+  console.log(index);
+  const [recipe, setRecipe] = useState(
+    index === null ? {
+      name: '',
+      description: '',
+      src: 'src/assets/fallback.jpeg'
+    } : recipeList[index]
+  );
   const change = (e) => {
     setRecipe({...recipe, [e.target.name]:e.target.value})
   }
