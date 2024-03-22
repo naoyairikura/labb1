@@ -4,7 +4,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
   const [recipe, setRecipe] = useState({
     name: '',
-    description: ''
+    description: '',
+    src: 'src/assets/fallback.jpeg'
   });
 
   const change = (e) => {
