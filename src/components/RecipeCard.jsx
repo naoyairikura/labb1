@@ -19,8 +19,8 @@ const RecipeCard = ({ index, name, description, setShowModal, setModalType, setI
           <h4 className="text-start m-0">{name}</h4>
           <div className="text-start">{description}</div>
           <div className="position-absolute bottom-0 bt-group">
-            <button className="btn btn-primary btn-sm me-2" onClick={handleEditClick}>Edit</button>
-            <button className="btn btn-danger btn-sm">Delete</button>
+            <button className="btn btn-outline-primary btn-sm me-2" onClick={handleEditClick}>Edit</button>
+            <button className="btn btn-outline-danger btn-sm">Delete</button>
           </div>
           
         </div>
