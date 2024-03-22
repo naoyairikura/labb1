@@ -7,10 +7,6 @@ const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
     description: ''
   });
 
-  const handleInputChange = (e) => {
-    setRecipe({ ...recipe, name: e.target.value });
-  }
-
   const handleSave = () => {
     modalType === 'Add' ? addRecipe(recipe) : editRecipe(recipe);
     setShowModal(false);
@@ -33,12 +29,18 @@ const Modal = ({ setShowModal, modalType, addRecipe, editRecipe }) => {
                     className="form-control" 
                     id="recipeName"
                     value={recipe.name}
-                    onChange={handleInputChange}
+                    onChange={(e)=>setRecipe({...recipe, name:e.target.value})}
                   />
                 </div>
                 <div className="mb-3 d-flex align-items-center">
                   <label htmlFor="description" className="me-2">Description:</label>
-                  <input type="text" className="form-control" id="description" />
+                  <input 
+                    type="text" 
+                    className="form-control" 
+                    id="description" 
+                    value={recipe.description}
+                    onChange={(e)=>setRecipe({...recipe, description:e.target.value})}
+                  />
                 </div>
               </div>
               <div className="modal-footer">
