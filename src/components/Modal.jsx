@@ -33,14 +33,18 @@ const Modal = ({
   };
   return (
     <>
-      <div className="modal-backdrop fade show">
+      <div 
+        className="modal-backdrop" 
+        style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+        onClick={() => {setShowModal(false)}}
+      >
         <div
           className="modal fade show"
           tabIndex="-1"
           style={{ display: "block" }}
         >
-          <div className="modal-dialog">
-            <div className="modal-content">
+          <div className="modal-dialog" >
+            <div className="modal-content" >
               <div className="modal-header">
                 <h5 className="modal-title">{modalType} recipe</h5>
                 <button
