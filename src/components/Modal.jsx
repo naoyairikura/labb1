@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Modal = ({ index, recipeList, setShowModal, modalType, addRecipe, editRecipe }) => {
@@ -9,7 +9,12 @@ const Modal = ({ index, recipeList, setShowModal, modalType, addRecipe, editReci
       src: 'src/assets/fallback.jpeg'
     } : recipeList[index]
   );
-  const change = (e) => {
+  const recipeNameEl  = useRef();
+  useEffect(() => {
+    recipeNameEl.current.focus();
+  },[])
+
+  const changeInput = (e) => {
     setRecipe({...recipe, [e.target.name]:e.target.value})
   }
 
@@ -32,10 +37,11 @@ const Modal = ({ index, recipeList, setShowModal, modalType, addRecipe, editReci
                   <label htmlFor="recipeName" className="me-2">Recipe name:</label>
                   <input 
                     type="text" 
-                    className="form-control" 
+                    className="form-control"
+                    ref={recipeNameEl}
                     name='name'
                     value={recipe.name}
-                    onChange={change}
+                    onChange={changeInput}
                   />
                 </div>
                 <div className="mb-3 d-flex align-items-center">
@@ -45,7 +51,7 @@ const Modal = ({ index, recipeList, setShowModal, modalType, addRecipe, editReci
                     className="form-control" 
                     name='description' 
                     value={recipe.description}
-                    onChange={change}
+                    onChange={changeInput}
                   />
                 </div>
               </div>
