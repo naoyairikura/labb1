@@ -1,64 +1,70 @@
-import { useEffect, useState } from 'react';
-import './App.css'
-import Modal from './components/Modal'
-import NavBar from './components/NavBar';
-import RecipeList from './components/RecipeList';
-import Footer from './components/Footer';
+import { useEffect, useState } from "react";
+import "./App.css";
+import Modal from "./components/Modal";
+import NavBar from "./components/NavBar";
+import RecipeList from "./components/RecipeList";
+import Footer from "./components/Footer";
 
 function App() {
   const [showModal, setShowModal] = useState(false);
-  const [modalType, setModalType] = useState('');
-  const [recipeList, setRecipeList] = useState([])
+  const [modalType, setModalType] = useState("");
+  const [recipeList, setRecipeList] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('../initRecipe.json');
+      const response = await fetch("../initRecipe.json");
       const data = await response.json();
       setRecipeList(data);
-    }
+    };
     fetchData();
-  }, [])
-
+  }, []);
 
   const addRecipe = (recipe) => {
-    const newRecipeList = [...recipeList, recipe]
+    const newRecipeList = [...recipeList, recipe];
     setRecipeList(newRecipeList);
-  }
+  };
 
   const [index, setIndex] = useState();
   const editRecipe = (editedRecipe) => {
     const newRecipeList = [...recipeList];
     newRecipeList[index] = editedRecipe;
-    setRecipeList(newRecipeList)
-  }
+    setRecipeList(newRecipeList);
+  };
 
   const deleteRecipe = (index) => {
-    const newRecipeList = [...recipeList.slice(0, index), ...recipeList.slice(index + 1)];
+    const newRecipeList = [
+      ...recipeList.slice(0, index),
+      ...recipeList.slice(index + 1),
+    ];
     setRecipeList(newRecipeList);
-  }
+  };
 
   return (
     <>
-      <NavBar setShowModal={setShowModal} setModalType={setModalType} setIndex={setIndex}/>
-      <RecipeList 
-        recipeList={recipeList} 
-        setShowModal={setShowModal} 
+      <NavBar
+        setShowModal={setShowModal}
+        setModalType={setModalType}
+        setIndex={setIndex}
+      />
+      <RecipeList
+        recipeList={recipeList}
+        setShowModal={setShowModal}
         setModalType={setModalType}
         setIndex={setIndex}
         deleteRecipe={deleteRecipe}
       />
-      {showModal && 
-        <Modal 
+      {showModal && (
+        <Modal
           index={index}
           recipeList={recipeList}
-          setShowModal={setShowModal} 
+          setShowModal={setShowModal}
           modalType={modalType}
           addRecipe={addRecipe}
           editRecipe={editRecipe}
         />
-      }
-      <Footer recipeList={recipeList}/>
+      )}
+      <Footer recipeList={recipeList} />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
