@@ -1,16 +1,23 @@
-import React from 'react'
+import React from "react";
 
-const RecipeCard = ({ index, recipe, setShowModal, setModalType, setIndex, deleteRecipe }) => {
+const RecipeCard = ({
+  index,
+  recipe,
+  setShowModal,
+  setModalType,
+  setIndex,
+  deleteRecipe,
+}) => {
   const handleEdit = () => {
-    setIndex(index)
-    setShowModal(true)
-    setModalType('Edit')
-  }
+    setIndex(index);
+    setShowModal(true);
+    setModalType("Edit");
+  };
 
   const handleDelete = () => {
-    setIndex(index)
-    deleteRecipe(index)
-  }
+    setIndex(index);
+    deleteRecipe(index);
+  };
   return (
     <div className="container">
       <div className="row">
@@ -21,14 +28,23 @@ const RecipeCard = ({ index, recipe, setShowModal, setModalType, setIndex, delet
           <h4 className="text-start m-0">{recipe.name}</h4>
           <div className="text-start">{recipe.description}</div>
           <div className="position-absolute bottom-0 bt-group">
-            <button className="btn btn-outline-primary btn-sm me-2" onClick={handleEdit}>Edit</button>
-            <button className="btn btn-outline-danger btn-sm" onClick={handleDelete}>Delete</button>
+            <button
+              className="btn btn-outline-primary btn-sm me-2"
+              onClick={handleEdit}
+            >
+              Edit
+            </button>
+            <button
+              className="btn btn-outline-danger btn-sm"
+              onClick={handleDelete}
+            >
+              Delete
+            </button>
           </div>
-          
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RecipeCard
+export default RecipeCard;
