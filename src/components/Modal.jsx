@@ -33,10 +33,12 @@ const Modal = ({
   };
   return (
     <>
-      <div 
-        className="modal-backdrop" 
+      <div
+        className="modal-backdrop"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
-        onClick={() => {setShowModal(false)}}
+        onClick={() => {
+          setShowModal(false);
+        }}
       >
         <div
           className="modal fade show"
@@ -44,7 +46,7 @@ const Modal = ({
           style={{ display: "block" }}
         >
           <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
-            <div className="modal-content" >
+            <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">{modalType} recipe</h5>
                 <button
