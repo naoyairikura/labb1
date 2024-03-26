@@ -43,7 +43,7 @@ const Modal = ({
           tabIndex="-1"
           style={{ display: "block" }}
         >
-          <div className="modal-dialog" >
+          <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
             <div className="modal-content" >
               <div className="modal-header">
                 <h5 className="modal-title">{modalType} recipe</h5>
@@ -61,6 +61,7 @@ const Modal = ({
                   <input
                     type="text"
                     className="form-control"
+                    id="recipeName"
                     ref={recipeNameEl}
                     name="name"
                     value={recipe.name}
@@ -74,6 +75,7 @@ const Modal = ({
                   <input
                     type="text"
                     className="form-control"
+                    id="description"
                     name="description"
                     value={recipe.description}
                     onChange={changeInput}
